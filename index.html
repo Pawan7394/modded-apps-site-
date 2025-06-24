@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Technical Help Pawan</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #f12711, #f5af19);
+      color: #fff;
+      text-align: center;
+      padding: 40px;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 25px;
+      border-radius: 20px;
+      margin: 25px auto;
+      width: 90%;
+      max-width: 420px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.4);
+      backdrop-filter: blur(6px);
+    }
+
+    button, .download-btn {
+      background: #fff;
+      color: #111;
+      border: none;
+      padding: 14px 28px;
+      margin-top: 20px;
+      font-size: 17px;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      transition: all 0.3s ease-in-out;
+    }
+
+    button:hover, .download-btn:hover {
+      background: #111;
+      color: #fff;
+    }
+
+    .option-btn {
+      margin: 12px;
+      width: 120px;
+    }
+
+    .app-img {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      margin-bottom: 12px;
+      border-radius: 50%;
+      background: white;
+      padding: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    #confirmSection, #downloads {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🚀 Technical Help Pawan</h1>
+  <p style="font-size: 18px;">Subscribe to download premium mod apps for free</p>
+
+  <!-- Step 1 -->
+  <div class="card" id="subscribeCard">
+    <h2>🔔 Step 1: Subscribe to our Channel</h2>
+    <a href="https://www.youtube.com/@Pawan___pal?sub_confirmation=1" onclick="afterSubscribe()">
+      <button><i class="fab fa-youtube"></i> Subscribe Now</button>
+    </a>
+  </div>
+
+  <!-- Step 2 -->
+  <div class="card" id="confirmSection">
+    <h2>✅ Step 2: Confer Subscribe?</h2>
+    <p>Have you subscribed to our channel?</p>
+    <button class="option-btn" onclick="handleConfirm(true)">✔️ Yes</button>
+    <button class="option-btn" onclick="handleConfirm(false)">❌ No</button>
+  </div>
+
+  <!-- Step 3 -->
+  <div id="downloads">
+    <div class="card">
+      <img src="images/paytm.png" class="app-img" alt="Paytm Logo"/>
+      <h3>💰 Super Money</h3>
+      <a class="download-btn" href="files/supermoney.apk" download>
+        <i class="fas fa-download"></i> Download
+      </a>
+    </div>
+
+    <div class="card">
+      <img src="images/google.png" class="app-img" alt="Google Pay Logo"/>
+      <h3>📱 GPay Mod</h3>
+      <a class="download-btn" href="files/gpay.apk" download>
+        <i class="fas fa-download"></i> Download
+      </a>
+    </div>
+
+    <div class="card">
+      <img src="images/phonepe.png" class="app-img" alt="PhonePe Logo"/>
+      <h3>💸 PhonePe Premium</h3>
+      <a class="download-btn" href="files/phonepe.apk" download>
+        <i class="fas fa-download"></i> Download
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function afterSubscribe() {
+      localStorage.setItem("visitedAfterSubscribe", "true");
+    }
+
+    window.onload = function () {
+      const redirected = localStorage.getItem("visitedAfterSubscribe");
+      if (redirected === "true") {
+        document.getElementById("subscribeCard").style.display = "none";
+        document.getElementById("confirmSection").style.display = "block";
+        localStorage.removeItem("visitedAfterSubscribe");
+      }
+    };
+
+    function handleConfirm(answer) {
+      if (answer) {
+        document.getElementById("confirmSection").style.display = "none";
+        document.getElementById("downloads").style.display = "block";
+      } else {
+        window.location.href = "https://www.youtube.com/@Pawan___pal?sub_confirmation=1";
+      }
+    }
+  </script>
+
+</body>
+</html>
